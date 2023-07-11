@@ -12,6 +12,11 @@ jobs:
     runs-on: self-hosted
 
     steps:
+    - name: Install git on container
+      run: |
+        apt update
+        apt install -y git
+
     - uses: actions/checkout@v3
       with:
         submodules: recursive
