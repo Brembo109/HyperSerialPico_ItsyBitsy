@@ -50,7 +50,7 @@ jobs:
 
   publish:
     name: Publish Releases
-#    if: startsWith(github.event.ref, 'refs/tags')
+    if: startsWith(github.event.ref, 'refs/tags')
     needs: [HyperSerialPico]
     runs-on: self-hosted
     permissions:
