@@ -1,4 +1,4 @@
-name: HyperSerialPico CI Build
+name: HyperSerialPico_ItsyBitsy CI Build
 
 on: [push]
 
@@ -8,7 +8,7 @@ jobs:
 #### HyperSerialPico ######
 ###########################
 
-  HyperSerialPico:
+  HyperSerialPico_ItsyBitsy:
     runs-on: self-hosted
 
     steps:
@@ -51,7 +51,7 @@ jobs:
   publish:
     name: Publish Releases
     if: startsWith(github.event.ref, 'refs/tags')
-    needs: [HyperSerialPico]
+    needs: [HyperSerialPico_ItsyBitsy]
     runs-on: self-hosted
     permissions:
       contents: write
@@ -75,7 +75,7 @@ jobs:
       - name: Create draft release
         uses: softprops/action-gh-release@v1
         with:
-          name: HyperSerialPico ${{ env.VERSION }}
+          name: HyperSerialPico_ItsyBitsy ${{ env.VERSION }}
           tag_name: ${{ env.TAG }}
           files: |
             *.uf2
